@@ -2,6 +2,8 @@ package br.com.caelum.livraria.bean;
 
 import javax.faces.bean.ManagedBean;
 
+import br.com.caelum.livraria.modelo.Livro;
+
 @ManagedBean
 public class LivroBean {
 
