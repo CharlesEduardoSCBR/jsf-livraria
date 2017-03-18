@@ -39,6 +39,12 @@
 					itemLabel="#{autor.nome}" itemValue="#{autor.id}" />
 			</h:selectOneMenu>
 			<h:commandButton action="#{livroBean.gravar}" value="Gravar" />
+
+			<h:dataTable value="#{livroBean.autoresDoLivro}" var="autor">
+				<h:column>
+					<h:outputText value="#{autor.nome}" />
+				</h:column>
+			</h:dataTable>
 		</fieldSet>
 	</h:form>
 </h:body>
