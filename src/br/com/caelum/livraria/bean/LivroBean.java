@@ -17,17 +17,17 @@ public class LivroBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer autorId;
 	private Livro livro = new Livro();
-
+	
 	public Livro getLivro() {
 		return livro;
+	}
+	
+	public void setAutorId(Integer autorId) {
+		this.autorId = autorId;
 	}
 
 	public Integer getAutorId() {
 		return autorId;
-	}
-
-	public void setAutorId(Integer autorId) {
-		this.autorId = autorId;
 	}
 
 	public List<Autor> getAutores() {
@@ -38,8 +38,24 @@ public class LivroBean implements Serializable {
 		return this.livro.getAutores();
 	}
 	
-	public void gravar() {
-		Autor autor = new DAO<Autor>(Autor.class).buscaPorId(this.autorId);
+	public List<Livro> getLivros(){
+		return new DAO<Livro>(Livro.class).listaTodos();
+	}
+	
+	public void gravarAutor(){
+		Autor autor = new DAO<Autor>(Autor.class).buscaPorId(autorId);
 		this.livro.adicionaAutor(autor);
+		System.out.println("Libro escrito por.:" + autor.getNome());
+	}
+	
+	public void gravar() {
+		DAO<Livro> livroDAO = new DAO<Livro>(Livro.class);
+		Autor autor = new DAO<Autor>(Autor.class).buscaPorId(this.autorId);
+		
+		//System.out.println("Autor é.: " + autor.getNome());
+		this.livro.adicionaAutor(autor);
+		livroDAO.adiciona(livro);
+		
+		this.livro = new Livro();
 	}
 }
