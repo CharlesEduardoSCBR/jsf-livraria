@@ -17,11 +17,11 @@ public class LivroBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer autorId;
 	private Livro livro = new Livro();
-	
+
 	public Livro getLivro() {
 		return livro;
 	}
-	
+
 	public void setAutorId(Integer autorId) {
 		this.autorId = autorId;
 	}
@@ -34,28 +34,25 @@ public class LivroBean implements Serializable {
 		return new DAO<Autor>(Autor.class).listaTodos();
 	}
 
-	public List<Autor> getAutoresDoLivro(){
+	public List<Autor> getAutoresDoLivro() {
 		return this.livro.getAutores();
 	}
-	
-	public List<Livro> getLivros(){
+
+	public List<Livro> getLivros() {
 		return new DAO<Livro>(Livro.class).listaTodos();
 	}
-	
-	public void gravarAutor(){
+
+	public void gravarAutor() {
 		Autor autor = new DAO<Autor>(Autor.class).buscaPorId(autorId);
 		this.livro.adicionaAutor(autor);
 		System.out.println("Libro escrito por.:" + autor.getNome());
 	}
-	
+
 	public void gravar() {
-		DAO<Livro> livroDAO = new DAO<Livro>(Livro.class);
-		Autor autor = new DAO<Autor>(Autor.class).buscaPorId(this.autorId);
-		
-		//System.out.println("Autor é.: " + autor.getNome());
-		this.livro.adicionaAutor(autor);
-		livroDAO.adiciona(livro);
-		
-		this.livro = new Livro();
+		System.out.println("Gravando livro " + this.livro.getTitulo());
+
+		if (livro.getAutores().isEmpty()) {
+			throw new RuntimeException("Livro deve ter pelo menos um Autor.");
+		}
 	}
 }
