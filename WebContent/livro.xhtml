@@ -16,7 +16,8 @@
 
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Titulo.:" for="titulo" />
-				<h:inputText id="titulo" value="#{livroBean.livro.titulo}" />
+				<h:inputText id="titulo" value="#{livroBean.livro.titulo}"
+					required="true" requiredMessage="Título obrigatório!" />
 
 				<h:outputLabel value="ISBN.:" for="isbn" />
 				<h:inputText id="isbn" value="#{livroBean.livro.isbn}" />
