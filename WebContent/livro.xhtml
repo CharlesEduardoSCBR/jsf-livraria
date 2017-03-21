@@ -37,7 +37,7 @@
 					value="#{livroBean.livro.dataLancamento.time}"
 					required="true"
 					validatorMessage="Insira uma data válida!!!!">
-					<f:convertDateTime pattern="dd/MM/yyyy"
+					<f:convertDateTime pattern="dd/MM/yyyy HH:mm"
 						timeZone="America/Sao_Paulo" />
 				</h:inputText>
 			</h:panelGrid>
@@ -84,7 +84,9 @@
 
 		<h:column>
 			<f:facet name="header">Data</f:facet>
-			<h:outputText value="#{livro.dataLancamento.time}" />
+			<h:outputText value="#{livro.dataLancamento.time}">
+				<f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="America/Sao_Paulo" />
+			</h:outputText>
 		</h:column>
 	</h:dataTable>
 
