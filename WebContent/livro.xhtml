@@ -27,7 +27,10 @@
 							 validator="#{livroBean.comecaComDigitoUm}"/>
 
 				<h:outputLabel value="Preço.:" for="preco" />
-				<h:inputText id="preco" value="#{livroBean.livro.preco}" />
+				<h:inputText id="preco" value="#{livroBean.livro.preco}"
+							 validatorMessage="Valor do preço deve estar entre R$ 1,00 a R$ 1.000,00!">
+					<f:validateDoubleRange minimum="1.00" maximum="1000.00"/>
+				</h:inputText>
 
 				<h:outputLabel value="Data de Lançamento.:" for="dataLancamento" />
 				<h:inputText id="dataLancamento"
