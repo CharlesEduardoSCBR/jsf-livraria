@@ -23,7 +23,8 @@
 				</h:inputText>
 
 				<h:outputLabel value="ISBN.:" for="isbn" />
-				<h:inputText id="isbn" value="#{livroBean.livro.isbn}" />
+				<h:inputText id="isbn" value="#{livroBean.livro.isbn}" 
+							 validator="#{livroBean.comecaComDigitoUm}"/>
 
 				<h:outputLabel value="Preço.:" for="preco" />
 				<h:inputText id="preco" value="#{livroBean.livro.preco}" />
@@ -70,7 +71,7 @@
 
 		<h:column>
 			<f:facet name="header">ISBN</f:facet>
-			<h:outputText value="#{livro.isbn}" />
+			<h:outputText value="#{livro.isbn}"/>
 		</h:column>
 
 		<h:column>

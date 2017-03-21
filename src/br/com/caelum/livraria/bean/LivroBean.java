@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 import javax.validation.ValidationException;
@@ -61,4 +62,12 @@ public class LivroBean implements Serializable {
 		}
 	}
 	
+	public void comecaComDigitoUm(FacesContext fc, UIComponent component, Object value) throws ValidatorException{
+		String valor = value.toString();
+		
+		if(!valor.startsWith("1")){
+			throw new ValidatorException(new FacesMessage("Deveria começar com 1"));
+		}
+			
+	}
 }
