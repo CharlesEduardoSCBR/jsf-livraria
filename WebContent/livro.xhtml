@@ -68,7 +68,9 @@
 
 		<br />
 		<h:commandButton value="Gravar" action="#{livroBean.gravar}"
-			validator="#{livroBean.gravar}" />
+			validator="#{livroBean.gravar}">
+			<f:ajax execute="@form" render="@form tabelaLivros" />
+		</h:commandButton>
 	</h:form>
 
 	<h:dataTable id="tabelaLivros" value="#{livroBean.livros}" var="livro">
