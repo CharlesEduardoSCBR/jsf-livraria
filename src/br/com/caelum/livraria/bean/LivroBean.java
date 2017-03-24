@@ -52,6 +52,10 @@ public class LivroBean implements Serializable {
 		this.livro.adicionaAutor(autor);
 		System.out.println("Libro escrito por.:" + autor.getNome());
 	}
+	
+	public void removerAutorDoLivro(Autor autor){
+		this.livro.removeAutor(autor);
+	}
 
 	public void gravar(){
 		System.out.println("Gravando livro " + this.livro.getTitulo());
