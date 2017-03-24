@@ -72,7 +72,8 @@
 			<br />
 			<h:commandButton value="Gravar" action="#{livroBean.gravar}"
 				validator="#{livroBean.gravar}">
-				<f:ajax execute="@form" render="@form :formTabelaLivros:tabelaLivros" />
+				<f:ajax execute="@form"
+					render="@form :formTabelaLivros:tabelaLivros" />
 			</h:commandButton>
 		</h:form>
 
@@ -104,9 +105,14 @@
 				</h:column>
 
 				<h:column>
+					<f:facet name="header">Alterar</f:facet>
+					<h:commandLink value="Alterar"
+						action="#{livroBean.carregar(livro)}" />
+				</h:column>
+
+				<h:column>
 					<f:facet name="header">Remover</f:facet>
-					<h:commandLink value="Remover"
-								   action="#{livroBean.remover(livro)}" />
+					<h:commandLink value="Remover" action="#{livroBean.remover(livro)}" />
 				</h:column>
 			</h:dataTable>
 		</h:form>
