@@ -64,6 +64,11 @@ public class LivroBean implements Serializable {
 		new DAO<Livro>(Livro.class).adiciona(this.livro);
 	}
 	
+	public void remover(Livro livro){
+		System.out.println("Removendo livro " + livro.getTitulo());
+		new DAO<Livro>(Livro.class).remove(livro);
+	}
+	
 	public void comecaComDigitoUm(FacesContext fc, UIComponent component, Object value) throws ValidatorException{
 		String valor = value.toString();
 		
