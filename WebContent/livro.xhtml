@@ -35,9 +35,9 @@
 					</p:inputText>
 
 					<p:outputLabel value="ISBN:" for="isbn" />
-					<p:inputText id="isbn" value="#{livroBean.livro.isbn}"
+					<p:inputMask mask="999-9-99-999999-9" id="isbn" value="#{livroBean.livro.isbn}"
 						validator="#{livroBean.comecaComDigitoUm}" />
-
+					
 					<p:outputLabel value="Preço:" for="preco" />
 					<p:inputText id="preco" value="#{livroBean.livro.preco}" />
 
