@@ -47,29 +47,23 @@
 			</p:fieldset>
 		</h:form>
 		<h:form id="formTabelaAutores">
-			<h:dataTable value="#{autorBean.autores}" var="autor"
-				id="tabelaAutores">
-				<h:column>
-					<f:facet name="header">Nome</f:facet>
-					<h:outputText value="#{autor.nome}" />
-				</h:column>
+			<p:dataList value="#{autorBean.autores}" var="autor"
+				id="tabelaAutores" type="definition">
 
-				<h:column>
-					<f:facet name="header">Alterar</f:facet>
-					<h:commandLink value="altera">
-						<f:setPropertyActionListener value="#{autor}"
-							target="#{autorBean.autor}" />
-					</h:commandLink>
-				</h:column>
+				<p:commandLink styleClass="ui-icon ui-icon-pencil"
+					style="float:left;margin-right:10px" update=":autor">
+					<f:setPropertyActionListener value="#{autor}"
+						target="#{autorBean.autor}" />
+				</p:commandLink>
 
-				<h:column>
-					<f:facet name="header">Remover</f:facet>
-					<h:commandLink value="remove" action="#{autorBean.remover(autor)}" />
-				</h:column>
-			</h:dataTable>
+				<p:commandLink styleClass="ui-icon ui-icon-trash"
+					style="float:left;margin-right:10px"
+					action="#{autorBean.remover(autor)}" update="@form" />
+
+				#{autor.nome} - #{autor.email}
+			</p:dataList>
 		</h:form>
 	</ui:define>
-
 </ui:composition>
 
 </html>
