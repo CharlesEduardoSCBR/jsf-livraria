@@ -42,11 +42,9 @@
 					<p:inputText id="preco" value="#{livroBean.livro.preco}" />
 
 					<p:outputLabel value="Data de Lançamento:" for="dataLancamento" />
-					<p:inputText id="dataLancamento"
-						value="#{livroBean.livro.dataLancamento.time}">
-						<f:convertDateTime pattern="dd/MM/yyyy"
-							timeZone="America/Sao_Paulo" />
-					</p:inputText>
+					<p:calendar id="dataLancamento" pattern="dd/MM/yyyy" mask="true" mode="popup" 
+						value="#{livroBean.livro.dataLancamento.time}" />
+					
 				</p:panelGrid>
 
 			</p:fieldset>
