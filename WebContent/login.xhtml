@@ -32,7 +32,7 @@
 						</p:inputText> 
 						<p:message for="senha" id="messageSenha" />
 
-						<h:commandButton value="Efetue Login" action="#{loginBean.efetuaLogin}" />
+						<p:commandButton value="Efetue Login" action="#{loginBean.efetuaLogin}" update="@form" process="@form"/>
 					</h:panelGrid>
 				</p:fieldset>
 			</h:form>
