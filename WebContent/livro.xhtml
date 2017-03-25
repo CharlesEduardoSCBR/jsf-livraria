@@ -35,33 +35,35 @@
 					</p:inputText>
 
 					<p:outputLabel value="ISBN:" for="isbn" />
-					<p:inputMask mask="999-9-99-999999-9" id="isbn" value="#{livroBean.livro.isbn}"
+					<p:inputMask mask="999-9-99-999999-9" id="isbn"
+						value="#{livroBean.livro.isbn}"
 						validator="#{livroBean.comecaComDigitoUm}" />
-					
+
 					<p:outputLabel value="Preço:" for="preco" />
 					<p:inputText id="preco" value="#{livroBean.livro.preco}" />
 
 					<p:outputLabel value="Data de Lançamento:" for="dataLancamento" />
-					<p:calendar id="dataLancamento" pattern="dd/MM/yyyy" mask="true" mode="popup" 
-						value="#{livroBean.livro.dataLancamento.time}" />
-					
+					<p:calendar id="dataLancamento" pattern="dd/MM/yyyy" mask="true"
+						mode="popup" value="#{livroBean.livro.dataLancamento.time}" />
+
 				</p:panelGrid>
 
 			</p:fieldset>
 
 			<p:fieldset legend="Dados do Autor">
-				<p:outputLabel value="Selecione Autor:" for="autor" />
-				<p:selectOneMenu value="#{livroBean.autorId}" id="autor">
-					<f:selectItems value="#{livroBean.autores}" var="autor"
-						itemLabel="#{autor.nome}" itemValue="#{autor.id}" />
-				</p:selectOneMenu>
-				<p:commandButton value="Gravar Autor"
-					action="#{livroBean.gravarAutor}" 
-					process="@this autor"
-					update="tabelaAutores"/>
+				<p:panelGrid columns="4">
+					<p:outputLabel value="Selecione Autor:" for="autor" />
+					<p:selectOneMenu value="#{livroBean.autorId}" id="autor">
+						<f:selectItems value="#{livroBean.autores}" var="autor"
+							itemLabel="#{autor.nome}" itemValue="#{autor.id}" />
+					</p:selectOneMenu>
+					<p:commandButton value="Gravar Autor"
+						action="#{livroBean.gravarAutor}" process="@this autor"
+						update="tabelaAutores" />
 
-				<h:commandLink value="Cadastrar novo autor"
-					action="#{livroBean.formAutor}" immediate="true" />
+					<p:commandLink value=" ou Cadastrar novo autor"
+						action="#{livroBean.formAutor}" immediate="true" update="@all" />
+				</p:panelGrid>
 
 				<h:dataTable value="#{livroBean.autoresDoLivro}" var="autor"
 					id="tabelaAutores">
