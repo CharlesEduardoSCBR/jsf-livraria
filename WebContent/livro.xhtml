@@ -51,16 +51,14 @@
 
 			<p:fieldset legend="Dados do Autor">
 				<p:outputLabel value="Selecione Autor:" for="autor" />
-				<h:selectOneMenu value="#{livroBean.autorId}" id="autor">
+				<p:selectOneMenu value="#{livroBean.autorId}" id="autor">
 					<f:selectItems value="#{livroBean.autores}" var="autor"
 						itemLabel="#{autor.nome}" itemValue="#{autor.id}" />
-				</h:selectOneMenu>
-				<h:commandButton value="Gravar Autor"
-					action="#{livroBean.gravarAutor}">
-					<f:ajax execute="autor" render="tabelaAutores" />
-				</h:commandButton>
-
-				<br />
+				</p:selectOneMenu>
+				<p:commandButton value="Gravar Autor"
+					action="#{livroBean.gravarAutor}" 
+					process="@this autor"
+					update="tabelaAutores"/>
 
 				<h:commandLink value="Cadastrar novo autor"
 					action="#{livroBean.formAutor}" immediate="true" />
