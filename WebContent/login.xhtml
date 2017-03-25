@@ -27,9 +27,7 @@
 						<p:message for="email" id="messageEmail" />
 						
 						<p:outputLabel value="Senha:" for="senha" />
-						<p:inputText id="senha" value="#{loginBean.usuario.senha}" required="true">
-							<f:passThroughAttribute name="type" value="password" />
-						</p:inputText> 
+						<p:password id="senha" value="#{loginBean.usuario.senha}" feedback="true"/>	
 						<p:message for="senha" id="messageSenha" />
 
 						<p:commandButton value="Efetue Login" action="#{loginBean.efetuaLogin}" update="@form" process="@form"/>
