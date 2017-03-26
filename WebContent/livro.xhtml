@@ -85,8 +85,8 @@
 		</h:form>
 
 		<h:form id="formTabelaLivros">
-			<p:dataTable value="#{livroBean.livros}" var="livro"
-				id="tabelaLivros" paginator="true" rows="5"
+			<p:dataTable value="#{livroBean.livroDataModel}" var="livro"
+				id="tabelaLivros" paginator="true" rows="5" lazy="true"
 				emptyMessage="Não existem livros cadastrados">
 				
 				<p:column headerText="Título" sortBy="#{livro.titulo}" filterBy="#{livro.titulo}"
