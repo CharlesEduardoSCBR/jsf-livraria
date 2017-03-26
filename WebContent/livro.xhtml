@@ -86,10 +86,11 @@
 
 		<h:form id="formTabelaLivros">
 			<p:dataTable value="#{livroBean.livros}" var="livro"
-				id="tabelaLivros" paginator="true" rows="5">
+				id="tabelaLivros" paginator="true" rows="5"
+				emptyMessage="Não existem livros cadastrados">
 				
 				<p:column headerText="Título" sortBy="#{livro.titulo}" filterBy="#{livro.titulo}"
-					filterMatchMode="startsWith">
+					filterMatchMode="startsWith" >
 					<h:outputText value="#{livro.titulo}" />
 				</p:column>
 			
