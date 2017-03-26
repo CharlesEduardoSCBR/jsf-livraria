@@ -74,10 +74,14 @@ public class LivroBean implements Serializable {
 			return;
 		}
 
+		DAO<Livro> dao = new DAO<Livro>(Livro.class);
+				
 		if(this.livro.getId() == null) {
-			new DAO<Livro>(Livro.class).adiciona(this.livro);
+			dao.adiciona(this.livro);
+
+			this.livros = dao.listaTodos();
 		} else {
-			new DAO<Livro>(Livro.class).atualiza(this.livro);
+			dao.atualiza(this.livro);
 		}
 
 		this.livro = new Livro();
