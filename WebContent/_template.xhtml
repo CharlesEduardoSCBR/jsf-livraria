@@ -14,9 +14,9 @@
 		<h:form>
 			<p:themeSwitcher id="basic" style="width:165px"
 				value="#{temaBean.tema}">
-				<f:selectItem itemLabel="Choose Theme" itemValue=""/>
-				<f:selectItem itemLabel="Aristo" itemValue="aristo"/>
-				<f:selectItem itemLabel="Vader" itemValue="Vader"/>
+				<f:selectItems itemLabel="Choose Theme" itemValue=""/>
+				<f:selectItems value="#{temaBean.temas}" var="tema" itemLabel="#{tema}" itemValue="#{tema}">
+				</f:selectItems>
 			</p:themeSwitcher>
 		</h:form>
 	
