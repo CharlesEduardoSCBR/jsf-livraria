@@ -10,7 +10,9 @@
 <h:body>
 	<div id="cabecalho">
 		<h:graphicImage library="img" name="logo.png" />
-
+	
+		<p:growl id="growl" showDetail="true" autoUpdate="true"/>
+		
 		<h:form rendered="#{usuarioLogado != null}">
 			<p:menuButton value="Menu">
 				<p:menuitem value="Livros" action="livro" icon="fa fa-fw fa-edit" />
