@@ -14,7 +14,8 @@ public class TesteRandom {
 		int resultado2 = gerador.nextInt(10);
 		System.out.println(resultado2);
 		
-		Random geradorBoolean = new Random(10);
+		long millis = System.currentTimeMillis();
+		Random geradorBoolean = new Random(millis);
 		
 		boolean valor = geradorBoolean.nextBoolean();
 		System.out.println(valor);
