@@ -86,7 +86,7 @@
 
 		<h:form id="formTabelaLivros">
 			<p:dataTable value="#{livroBean.livros}" var="livro"
-				id="tabelaLivros">
+				id="tabelaLivros" paginator="true" rows="5">
 				
 				<p:column headerText="Título" sortBy="#{livro.titulo}">
 					<h:outputText value="#{livro.titulo}" />
